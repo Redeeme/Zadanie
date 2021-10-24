@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Zadanie</string>
+    <string name="zapas">zapas:</string>
+    <string name="datum_a_cas">Datum a cas:</string>
+    <string name="region">region:</string>
+    <string name="_1">1:</string>
+    <string name="_11">1</string>
+    <string name="x">X:</string>
+    <string name="xx">X</string>
+    <string name="_2">2:</string>
+    <string name="_22">2</string>
+    <string name="_1x">1X:</string>
+    <string name="_1xx">1X</string>
+    <string name="x2">X2:</string>
+    <string name="x22">X2</string>
+    <string name="league">league</string>
+    <string name="sport">sport</string>
+</resources>
