@@ -70,18 +70,20 @@ class MainActivity : AppCompatActivity() {
                 val region = labels.getJSONObject("RE_${offer.getInt("RegionID")}").getString("Name")
                 val sport = labels.getJSONObject("SP_${offer.getInt("SportID")}").getString("Name")
 
-                var oddsRate1 = "-"
                 var oddsRateX = "-"
-                var oddsRate2 = "-"
                 var oddsRate1X = "-"
                 var oddsRateX2 = "-"
 
-                oddsRate1 = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_1").getString("OddsRate")
-                oddsRate2 = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_2").getString("OddsRate")
-                if (sport == "Futbal") {
+                val oddsRate1 = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_1").getString("OddsRate")
+                val oddsRate2 = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_2").getString("OddsRate")
+                try {
                     oddsRateX = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_X").getString("OddsRate")
                     oddsRate1X = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_1X").getString("OddsRate")
                     oddsRateX2 = odds.getJSONObject("${offer.getInt("EventChanceTypeID")}_X2").getString("OddsRate")
+                }catch (e: JSONException){
+                    oddsRateX2 = "-"
+                    oddsRate1X = "-"
+                    oddsRateX = "-"
                 }
                 var type = getType2(offersList,i,sport)
                 var tmp = false
