@@ -11,7 +11,6 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -85,14 +84,14 @@ class MainActivity : AppCompatActivity() {
                     oddsRate1X = "-"
                     oddsRateX = "-"
                 }
-                var type = getType2(offersList,i,sport)
+                var type = getTypeSport(offersList,i,sport)
                 var tmp = false
                 if (type == VIEW_TYPE_SPORT) {
                     val sportDetails = OfferModelClass(type, eventName, output, oddsRate1, oddsRateX, oddsRate2, oddsRate1X, oddsRateX2, region, league, sport)
                     tmp = true
                     offersList.add(sportDetails)
                 }
-                type = getType3(offersList,i,league,tmp)
+                type = getTypeLeague(offersList,i,league,tmp)
                 if (type == VIEW_TYPE_LEAGUE) {
                     val leagueDetails = OfferModelClass(type, eventName, output, oddsRate1, oddsRateX, oddsRate2, oddsRate1X, oddsRateX2, region, league, sport)
                     offersList.add(leagueDetails)
@@ -107,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         }
         return offersList
     }
-    private fun getType2(list: ArrayList<OfferModelClass>, i: Int,sport:String): Int {
+    private fun getTypeSport(list: ArrayList<OfferModelClass>, i: Int, sport:String): Int {
         if (i == 0) {
             return VIEW_TYPE_SPORT
         }else if (sport != list[list.size - 1].sport){
@@ -116,7 +115,7 @@ class MainActivity : AppCompatActivity() {
         return VIEW_TYPE_OFFER
     }
 
-    private fun getType3(list: ArrayList<OfferModelClass>, i: Int,league:String, tmp: Boolean): Int {
+    private fun getTypeLeague(list: ArrayList<OfferModelClass>, i: Int, league:String, tmp: Boolean): Int {
         if (i == 0) {
             return VIEW_TYPE_LEAGUE
         }else if (league != list[list.size - 1].league || tmp) {
