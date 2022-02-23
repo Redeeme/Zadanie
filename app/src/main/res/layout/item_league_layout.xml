@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/league"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="27sp"
             android:textStyle="bold">
         </TextView>
     </LinearLayout>
